@@ -26,11 +26,11 @@ std::vector<int> *Divider::getNextChunk() {
 	auto end_itr = this->data->begin();
 	int size = this->data->size();
 	int itr_start = this->current_chunk * (size / this->chunks);
-	std::advance(itr, itr_start);
+	std::advance(start_itr, itr_start);
 	this->current_chunk ++;
 	int itr_end = this->current_chunk * (size / this->chunks);
 	if (itr_end == size) {
-		return std::vector<int>(start_itr, this->data->end());
+		return new std::vector<int>(start_itr, this->data->end());
 	}
 
 	return new std::vector<int>(start_itr, end_itr);		
