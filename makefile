@@ -3,7 +3,7 @@ CFLAGS += -g
 CFLAGS += -lpthread
 
 SRC=main.cpp divider.cpp
-INCLUDE=-Idivider.h
+INCLUDE=divider.h
 
 
 .PHONY: bin
