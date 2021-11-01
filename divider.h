@@ -11,12 +11,12 @@
 class Divider {
 	int chunks; //number of partitions
 	int current_chunk; //chunk index next to be processed
-	std::vector<int> *data;
+	std::vector<int> data;
 public:
 	Divider(int prob_size, int chunks, int lowest, int highest);
 	~Divider();
 
-	std::vector<int>  *getNextChunk();
+	std::vector<int>  getNextChunk();
 
 };
 
