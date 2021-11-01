@@ -25,7 +25,7 @@ int main (int argv, char **argc) {
 		
 	} else {
 	// worker process
-
+		std::cout << "worker: " << rank << "says hello\n";
 	}
 	MPI_Finalize();
 
