@@ -16,7 +16,7 @@ int main (int argv, char **argc) {
 
 	// Host process
 	
-		std::shared_ptr<Divider> div = std::make_shared<Divider>(DATA_SIZE,NUM_PARTITIONS,START_RANGE,END_RANGE);
+		std::shared_ptr<Divider<int> > div = std::make_shared<Divider<int> >(DATA_SIZE,NUM_PARTITIONS,START_RANGE,END_RANGE);
 		std::cout << "start the loop\n";
 			
 		std::vector<int> chunk = div->getNextChunk();

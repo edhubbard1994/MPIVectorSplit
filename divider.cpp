@@ -6,7 +6,8 @@
 
 #define STOP_ITR this->chunks + 1
 
-Divider::Divider(int prob_size, int chunks, int lowest, int highest) {
+template<class T>
+Divider<T>::Divider(int prob_size, int chunks, T lowest, T highest) {
 	this->current_chunk = 0;
 	this->data.resize(prob_size);
 	this->chunks = chunks;
@@ -18,21 +19,21 @@ Divider::Divider(int prob_size, int chunks, int lowest, int highest) {
 	
 }
 
-
-std::vector<int> Divider::getNextChunk() {
+template<class T>
+std::vector<T> Divider<T>::getNextChunk() {
 	if (this->current_chunk >= STOP_ITR) {
-		return std::vector<int>(0);
+		return std::vector<T>(0);
 	}
 	
-	std::vector<int>::iterator start_itr = this->data.begin();
-	std::vector<int>::iterator end_itr = this->data.begin();
+	typename std::vector<T>::iterator start_itr = this->data.begin();
+	typename std::vector<T>::iterator end_itr = this->data.begin();
 	int size = this->data.size();
 	int itr_start = this->current_chunk * (size / this->chunks);
 	start_itr += itr_start;
 	this->current_chunk ++;
 	int itr_end =  this->current_chunk * (size / this->chunks) ;
 	end_itr += itr_end;
-	std::vector<int> ret_vector = std::vector<int>();
+	typename std::vector<T> ret_vector = std::vector<T>();
 	if (this->current_chunk == STOP_ITR ) {
 		 ret_vector.assign(start_itr, this->data.end());
 		
@@ -43,4 +44,12 @@ std::vector<int> Divider::getNextChunk() {
 }
 
 
-Divider::~Divider() { }
+template<class T>
+Divider<T>::~Divider() { }
+
+template class Divider<int>;
+template class Divider<long>;
+template class Divider<unsigned int>;
+template class Divider<unsigned long>;
+template class Divider<long long>;
+template class Divider<short>;

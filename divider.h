@@ -8,15 +8,16 @@
  * A class to create and split vectors for message passing
  *
  * */
+template <class T>
 class Divider {
 	int chunks; //number of partitions
 	int current_chunk; //chunk index next to be processed
-	std::vector<int> data;
+	std::vector<T> data;
 public:
-	Divider(int prob_size, int chunks, int lowest, int highest);
+	Divider(int prob_size, int chunks, T lowest, T highest);
 	~Divider();
 
-	std::vector<int>  getNextChunk();
+	std::vector<T>  getNextChunk();
 
 };
 
